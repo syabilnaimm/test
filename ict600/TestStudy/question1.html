@@ -1,0 +1,32 @@
+<!-- Create an HTML form that collects a user's name and email address. Include
+appropriate labels for each input field. When the form is submitted, display an
+alert with the submitted name and email address. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 1</title>
+  </head>
+  <body>
+    <form action="question1.html" method="post">
+      <label for="name">Name : </label>
+      <input type="text" name="name" id="name" required /><br /><br />
+
+      <label for="email">Email :</label>
+      <input type="email" name="email" id="email" required /><br />
+      <br />
+      <button type="button" onclick="displayInfo()">Submit</button>
+    </form>
+  </body>
+  <script>
+    function displayInfo() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+
+      alert("Name: " + name + "\nEmail: " + email);
+    }
+  </script>
+</html>

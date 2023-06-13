@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form2</title>
+  </head>
+  <body>
+    <form action="" method=" ">
+      <fieldset>
+        <legend>Fill the form</legend>
+        <table>
+          <tr>
+            <td>
+              <label for="username">Username:</label>
+            </td>
+            <td>
+              <input type="text" id="username" name="username" required />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="email">Email:</label>
+            </td>
+            <td>
+              <input type="email" id="email" name="email" required />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="gender">Gender:</label>
+            </td>
+            <td>
+              <input type="radio" id="male" name="gender" value="male" />
+              <label for="male">Male</label>
+
+              <input type="radio" id="female" name="gender" value="female" />
+              <label for="female">Female</label>
+
+              <input type="radio" id="others" name="gender" value="others" />
+              <label for="others">Others</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="course">Course:</label>
+            </td>
+            <td>
+              <select name="course" id="course" required>
+                <option value="CS240">CS240</option>
+                <option value="IT120">IT120</option>
+                <option value="DSC661">DSC661</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="skill">Skill:</label>
+            </td>
+            <td>
+              <input type="checkbox" id="skill1" name="skill" value="Writing" />
+              <label for="skill1">Writing</label>
+
+              <input type="checkbox" id="skill2" name="skill" value="Coding" />
+              <label for="skill2">Coding</label>
+
+              <input type="checkbox" id="skill3" name="skill" value="Reading" />
+              <label for="skill3">Reading</label>
+            </td>
+          </tr>
+        </table>
+        <button
+          type="button"
+          onclick="displayValue()"
+          name="button1"
+          id="button1"
+        >
+          Submit
+        </button>
+      </fieldset>
+    </form>
+    <div id="output"></div>
+    <script>
+      function displayValue() {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var gender = document.querySelector(
+          'input[name="gender"]:checked'
+        ).value;
+        var course = document.getElementById("course").value;
+
+        var skillInputs = document.querySelectorAll(
+          'input[name="skill"]:checked'
+        );
+        var skills = Array.from(skillInputs)
+          .map((input) => input.value)
+          .join(", ");
+
+        var output = document.getElementById("output");
+        output.innerHTML = `<strong>Username:</strong> ${username}<br>
+                              <strong>Email:</strong> ${email}<br>
+                              <strong>Gender:</strong> ${gender}<br>
+                              <strong>Course:</strong> ${course}<br>
+                              <strong>Skills:</strong> ${skills}`;
+      }
+    </script>
+  </body>
+</html>
